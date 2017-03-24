@@ -40,18 +40,19 @@ class Validator extends Component {
       this.setState({valid: true})
     } else {
       this.setState({valid: false})
-
     }
   }
 
   render() {
+    let passwordsConfirmed = this.state.valid? "Passwords match...you are GTG!" : "Passwords don't match...try again!"
     return (
       <div className="form">
         <h1>Sign Up</h1>
-        <input type="text" placeholder="email" />
-        <input type="password" placeholder="password" />
-        <input type="password" placeholder="confirm password" />
-        <input type="submit" value="Submit" />
+        <input onChange={(event) => this.handleEmail(event)} type="text" placeholder="email" />
+        <input onChange={(event) => this.handlePassword(event)} type="password" placeholder="password" />
+        <input onChange={(event) => this.handleConfirmPassword(event)} type="password" placeholder="confirm password" />
+        <input onClick={(event) => this.handleSubmit(event)} type="submit" value="Submit" />
+        <p>{passwordsConfirmed}
       </div>
     );
   }
