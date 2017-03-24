@@ -3,7 +3,7 @@ import "./Validator.css";
 
 class Validator extends Component {
   constructor (props) {
-    super()
+    super(props)
     this.state = {
       email: "",
       password: "",
@@ -14,19 +14,19 @@ class Validator extends Component {
 
   handleEmail(event) {
     this.setState({
-      email.event.target.value
+      email: event.target.value
     })
   }
 
   handlePassword(event) {
     this.setState({
-      password.event.target.value
+      password: event.target.value
     })
   }
 
   handleConfirmPassword(event){
     this.setState({
-      confirmPassword.event.target.value
+      confirmPassword: event.target.value
     })
   }
 
@@ -44,7 +44,7 @@ class Validator extends Component {
   }
 
   render() {
-    let passwordsConfirmed = this.state.valid? "Passwords match...you are GTG!" : "Passwords don't match...try again!"
+    let passwordsMatch = this.state.valid? "Passwords match...you are GTG!" : "Passwords don't match...try again."
     return (
       <div className="form">
         <h1>Sign Up</h1>
@@ -52,7 +52,7 @@ class Validator extends Component {
         <input onChange={(event) => this.handlePassword(event)} type="password" placeholder="password" />
         <input onChange={(event) => this.handleConfirmPassword(event)} type="password" placeholder="confirm password" />
         <input onClick={(event) => this.handleSubmit(event)} type="submit" value="Submit" />
-        <p>{passwordsConfirmed}
+        <p>{passwordsMatch}</p>
       </div>
     );
   }
